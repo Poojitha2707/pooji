@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For a Quiet Night</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    body {
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #0b132b, #000);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    font-family: "Georgia", serif;
+    color: #e0e0e0;
+    overflow-y: auto;
+    padding: 40px 0;
+}
+
+
+    .container {
+        max-width: 700px;
+        padding: 40px;
+        text-align: center;
+        line-height: 1.8;
+        font-size: 18px;
+        opacity: 0;
+        transition: opacity 2s ease-in;
+    }
+
+    .fade {
+        opacity: 1;
+    }
+
+    .line {
+        margin: 20px 0;
+        opacity: 0;
+        transition: opacity 2s ease-in;
+    }
+
+    .line.show {
+        opacity: 1;
+    }
+
+    .footer {
+        margin-top: 40px;
+        font-size: 14px;
+        color: #9aa5b1;
+    }
+    .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .popup {
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: popupFade 0.6s ease;
+        }
+
+        .popup h2 {
+            color: #ff5c8a;
+            margin-bottom: 10px;
+        }
+
+        .popup p {
+            font-size: 20px;
+            color: #444;
+        }
+
+        @keyframes popupFade {
+            from {
+                transform: scale(0.7);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+</style>
+</head>
+
+<body>
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup">
+            <h2>😘Good Morning😘</h2>
+            <p>💖 Happy New Year Maaaaaa 💖</p>
+        </div>
+    </div>
+
+<div class="container" id="container">
+    <div class="line">😇 It’s quiet right now 😇</div>
+    <div class="line">I just wanted you to know—</div>
+    <div class="line">💞 You mean more to me than words can explain 💞</div>
+    <div class="line">😍 Always remember how deeply you are loved 😍</div>
+    <div class="line">💕 Also remember that there is someone who thinks of you with pure and endless love🥰</div>
+
+    <div class="line">Even if we’re not in the same place,😔</div>
+    <div class="line">💖 I’m thinking of you and loving you 💖</div>
+
+    <div class="line">❤️I am always here, always yours and always grateful to have you in my life.💖</div>
+    <div class="line">🥹Unexpectedly, you became the most important person in my life🥹</div>
+    <div class="line">🫂Thank You for coming into my Life🫂</div>
+    <div class="line">🤞Let this year start gently🤞</div>
+    <div class="line">🫂😘🥰😍💕💞💋🩷🫶</div>
+
+    <div class="line">😘 Happy New Year Thangooo 💖</div>
+</div>
+    
+
+<script>
+    const container = document.getElementById("container");
+    const lines = document.querySelectorAll(".line");
+
+    // Fade in container
+    setTimeout(() => {
+        container.classList.add("fade");
+    }, 1500);
+
+    // Show lines one by one
+    lines.forEach((line, index) => {
+        setTimeout(() => {
+            line.classList.add("show");
+        }, 3000 + index * 2500);
+    });
+    setTimeout(() => {
+            document.getElementById("popupOverlay").style.display = "flex";
+        }, 5000);
+
+        // Close popup on click
+        document.getElementById("popupOverlay").addEventListener("click", () => {
+            document.getElementById("popupOverlay").style.display = "none";
+        });
+</script>
+
+</body>
+</html>
